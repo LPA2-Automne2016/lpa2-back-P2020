@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Burgers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Nutriscore</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @burgers.each do |burger| %>
+      <tr>
+        <td><%= burger.name %></td>
+        <td><%= burger.price %></td>
+        <td><%= burger.image %></td>
+        <td><%= burger.nutriscore %></td>
+        <td><%= link_to 'Show', burger %></td>
+        <td><%= link_to 'Edit', edit_burger_path(burger) %></td>
+        <td><%= link_to 'Destroy', burger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Burger', new_burger_path %>

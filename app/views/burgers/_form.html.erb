@@ -1,0 +1,37 @@
+<%= form_with(model: burger, local: true) do |form| %>
+  <% if burger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(burger.errors.count, "error") %> prohibited this burger from being saved:</h2>
+
+      <ul>
+      <% burger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :burger_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :burger_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :burger_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nutriscore %>
+    <%= form.text_field :nutriscore, id: :burger_nutriscore %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
